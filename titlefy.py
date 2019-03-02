@@ -10,12 +10,14 @@ import ctypes
 from ctypes import wintypes
 import win32con
 
+print (" For Facebook Users, this looks like some random number (1111222333)")
+username= input('Input your Spotify Username:')
+print (username)
 HOTKEYS = {
   1 : (win32con.VK_F1, win32con.MOD_ALT)
 }
 
 for id, (vk, modifiers) in HOTKEYS.items ():
-  print ("Registering id", id, "for key", vk)
   print ("Success! Press Alt + F1 to copy tracks to clipboard")
   if not ctypes.windll.user32.RegisterHotKey (None, id, modifiers, vk):
     print ("Unable to register id", id)
@@ -39,7 +41,6 @@ def get_track():
     client_id='yourclientid'
     client_secret ='yourclientsecret'
     redirect_uri='http://localhost/'
-    username='1122016277' 
 
     token = util.prompt_for_user_token(username,scope,client_id,client_secret,redirect_uri)
     if token:
